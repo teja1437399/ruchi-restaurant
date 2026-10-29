@@ -5,68 +5,109 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Ruchi Restaurant | Taste the Happiness</title>
+<meta name="description" content="Explore the Ruchi Restaurant demo website, food gallery, menu and contact options.">
 <style>
-*{margin:0;padding:0;box-sizing:border-box;scroll-behavior:smooth}
-:root{--gold:#f4c76b;--cream:#fff5df;--dark:#21130e}
-body{font-family:Arial,sans-serif;background:#21130e;color:var(--cream)}
-header{padding:18px 7%;display:flex;justify-content:space-between;
-align-items:center;flex-wrap:wrap;gap:15px;background:#160c08;
-border-bottom:1px solid #8e622d;position:sticky;top:0;z-index:10}
-.logo{font-size:25px;font-weight:bold;color:var(--gold)}
-nav{display:flex;gap:18px;flex-wrap:wrap}
-nav a{color:white;text-decoration:none;font-size:14px}
+:root{
+  --gold:#f6cf7a;--cream:#fff5e5;--dark:#170b07;
+  --brown:#321c11;--green:#25d366;
+}
+*{box-sizing:border-box;margin:0;padding:0;scroll-behavior:smooth}
+body{font-family:Arial,sans-serif;background:var(--dark);color:var(--cream);overflow-x:hidden}
+a{color:inherit}
+header{
+  position:sticky;top:0;z-index:100;background:rgba(20,9,5,.94);
+  backdrop-filter:blur(14px);padding:16px 6%;
+  display:flex;justify-content:space-between;align-items:center;
+  flex-wrap:wrap;gap:15px;border-bottom:1px solid #76532d
+}
+.logo{font-size:23px;font-weight:bold;color:var(--gold)}
+nav{display:flex;gap:17px;flex-wrap:wrap}
+nav a{text-decoration:none;font-size:13px;transition:color .25s}
 nav a:hover{color:var(--gold)}
-.hero{min-height:520px;padding:75px 7%;display:flex;align-items:center;
-background:linear-gradient(90deg,rgba(20,10,5,.96),rgba(20,10,5,.38)),
-url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1600&q=85') center/cover}
-.hero-content{max-width:590px}
-.tag{color:var(--gold);letter-spacing:4px;font-size:12px;font-weight:bold}
-h1{font-size:clamp(42px,7vw,72px);line-height:1.08;margin:20px 0}
-h1 span{color:var(--gold)}
-.hero p{line-height:1.8;color:#f0dfca;max-width:480px}
-.btn{display:inline-block;margin-top:25px;padding:14px 25px;
-background:var(--gold);color:#25140b;text-decoration:none;
-font-weight:bold;border-radius:5px}
-section{padding:65px 7%}
-.heading{text-align:center;margin-bottom:35px}
-.heading small{color:var(--gold);letter-spacing:3px}
-.heading h2{font-size:clamp(28px,5vw,40px);margin-top:12px}
-.heading p{color:#d4c1ab;margin-top:12px;line-height:1.7}
-.features{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));
-gap:18px;margin-top:-1px;background:#2c1a11}
-.feature{padding:25px;border:1px solid #604124;border-radius:10px;text-align:center}
-.feature .emoji{font-size:32px}
-.feature h3{color:var(--gold);margin:12px 0}
-.feature p{color:#d4c1ab;line-height:1.6;font-size:14px}
-.menu{background:linear-gradient(140deg,#21130e,#382014)}
+.hero{
+  min-height:570px;padding:90px 7%;display:flex;align-items:center;
+  background:linear-gradient(90deg,rgba(18,8,4,.96),rgba(18,8,4,.45)),
+  url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1600&q=85') center/cover
+}
+.hero-content{max-width:650px;animation:rise .9s ease both}
+.eyebrow{font-size:12px;letter-spacing:4px;color:var(--gold);font-weight:bold}
+h1{font-size:clamp(42px,7vw,76px);line-height:1.08;margin:22px 0}
+h1 span,h2 span{color:var(--gold)}
+.hero p,.section-intro{line-height:1.9;color:#e2cfb8;max-width:570px}
+.btn{
+  display:inline-block;margin:22px 10px 0 0;padding:14px 22px;
+  background:var(--gold);color:#211107;text-decoration:none;font-weight:bold;
+  border-radius:7px;transition:transform .25s,box-shadow .25s
+}
+.btn:hover{transform:translateY(-4px);box-shadow:0 10px 28px #0006}
+.btn-green{background:var(--green);color:#062b16}
+section{padding:75px 7%}
+.heading{text-align:center;margin:0 auto 36px;max-width:720px}
+.heading h2{font-size:clamp(29px,5vw,43px);margin:13px 0}
+.heading p{line-height:1.8;color:#ddc8b0}
+.features{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:18px}
+.feature{
+  padding:26px;text-align:center;background:linear-gradient(145deg,#382116,#24140d);
+  border:1px solid #67472b;border-radius:13px;transition:transform .3s,border-color .3s
+}
+.feature:hover{transform:translateY(-7px);border-color:var(--gold)}
+.feature .emoji{font-size:34px}
+.feature h3{margin:13px 0;color:var(--gold)}
+.feature p{font-size:14px;line-height:1.7;color:#ddc8b0}
+.menu-section{background:linear-gradient(150deg,#24140d,#170b07)}
 .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:22px}
-.card{background:#2e1c12;border:1px solid #5d3b22;border-radius:12px;overflow:hidden;
-transition:transform .25s}
-.card:hover{transform:translateY(-5px)}
-.card img{width:100%;height:205px;object-fit:cover;display:block}
+.card{
+  overflow:hidden;border:1px solid #614329;border-radius:13px;
+  background:#2c190f;transition:transform .3s,box-shadow .3s
+}
+.card:hover{transform:translateY(-8px);box-shadow:0 16px 30px #0005}
+.card img{display:block;width:100%;height:210px;object-fit:cover;transition:transform .5s}
+.card:hover img{transform:scale(1.055)}
 .card-body{padding:19px}
 .card h3{color:var(--gold);margin-bottom:9px}
-.card p{color:#d4c1ab;line-height:1.6;font-size:14px}
-.price{display:block;margin-top:15px;font-size:19px;font-weight:bold;color:white}
-.note{font-size:12px;color:#c7ad8d;margin-top:22px;text-align:center}
-.gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px}
-.gallery img{width:100%;height:245px;object-fit:cover;border-radius:10px;
-border:1px solid #77502e;transition:transform .25s}
-.gallery img:hover{transform:scale(1.025)}
-.about{background:#342015;display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-gap:35px;align-items:center}
-.about img{width:100%;height:330px;object-fit:cover;border-radius:12px}
-.about h2{font-size:36px;margin:15px 0;color:var(--gold)}
-.about p{line-height:1.9;color:#e1cfb9}
-.contact{text-align:center;background:linear-gradient(135deg,#422715,#21130e)}
-.contact p{line-height:1.9;color:#e1cfb9;margin-top:12px}
-footer{text-align:center;padding:25px;background:#130a06;color:#cdb89f;font-size:13px}
-footer span{color:var(--gold)}
-@media(max-width:550px){
-header{justify-content:center}
-nav{justify-content:center;gap:13px}
-.hero{padding:65px 6%;min-height:460px}
-section{padding:48px 6%}
+.card p{font-size:14px;line-height:1.7;color:#ddc8b0}
+.gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:15px}
+.gallery img{
+  width:100%;height:250px;object-fit:cover;border-radius:11px;
+  border:1px solid #624329;transition:transform .35s,filter .35s
+}
+.gallery img:hover{transform:scale(1.025);filter:brightness(1.12)}
+.about{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:36px;align-items:center;background:#301c12
+}
+.about img{width:100%;height:340px;object-fit:cover;border-radius:13px}
+.about h2{font-size:clamp(30px,5vw,43px);margin:15px 0}
+.about p{line-height:1.9;color:#e1cbb3}
+.location-box{
+  padding:30px;background:linear-gradient(145deg,#392316,#21120b);
+  border:1px solid #67472b;border-radius:14px;text-align:center
+}
+.location-box p{line-height:1.9;color:#ddc8b0}
+.contact{text-align:center;background:linear-gradient(130deg,#28160d,#170b07)}
+.note{font-size:12px;color:#c9b195;line-height:1.7;margin-top:18px}
+footer{text-align:center;background:#100603;padding:27px;color:#d1baa0;font-size:13px}
+footer strong{color:var(--gold)}
+.floating-wa{
+  position:fixed;right:17px;bottom:18px;z-index:90;
+  background:var(--green);color:#062b16;text-decoration:none;font-weight:bold;
+  padding:15px 18px;border-radius:50px;box-shadow:0 6px 22px #0007;
+  animation:pulse 2.2s infinite
+}
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s ease}
+.reveal.visible{opacity:1;transform:translateY(0)}
+@keyframes rise{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:translateY(0)}}
+@keyframes pulse{0%,100%{box-shadow:0 6px 22px #0007}50%{box-shadow:0 6px 28px #25d36666}}
+@media(max-width:560px){
+  header{justify-content:center}
+  nav{justify-content:center;gap:12px}
+  .hero{min-height:490px;padding:65px 6%}
+  section{padding:52px 6%}
+  .floating-wa{right:10px;bottom:12px;padding:13px 15px;font-size:13px}
+}
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{scroll-behavior:auto!important;animation:none!important;transition:none!important}
+  .reveal{opacity:1;transform:none}
 }
 </style>
 </head>
@@ -79,6 +120,7 @@ section{padding:48px 6%}
     <a href="#menu">Menu</a>
     <a href="#gallery">Gallery</a>
     <a href="#about">About</a>
+    <a href="#location">Location</a>
     <a href="#contact">Contact</a>
   </nav>
 </header>
@@ -86,118 +128,129 @@ section{padding:48px 6%}
 <main>
 <section class="hero" id="home">
   <div class="hero-content">
-    <div class="tag">WELCOME TO RUCHI</div>
+    <div class="eyebrow">WELCOME TO RUCHI</div>
     <h1>Good Food.<br><span>Great Moments.</span></h1>
-    <p>Discover delicious flavours, beautiful food and a warm dining experience. Your next favourite meal awaits!</p>
+    <p>A beautiful restaurant website concept to showcase delicious food, warm hospitality and memorable dining moments.</p>
     <a class="btn" href="#menu">Explore Our Menu ↓</a>
+    <a class="btn btn-green" href="#contact">💚 WhatsApp Order</a>
   </div>
 </section>
 
-<section class="features">
-  <div class="feature">
-    <div class="emoji">🍲</div>
-    <h3>Fresh Flavours</h3>
-    <p>A beautiful showcase for your favourite dishes.</p>
+<section>
+  <div class="heading reveal">
+    <div class="eyebrow">A LITTLE SOMETHING SPECIAL</div>
+    <h2>Made for <span>Food Lovers</span></h2>
+    <p>An elegant sample design ready to be personalised with the restaurant's confirmed details.</p>
   </div>
-  <div class="feature">
-    <div class="emoji">👨‍🍳</div>
-    <h3>Made with Care</h3>
-    <p>Celebrate the joy of food and good hospitality.</p>
-  </div>
-  <div class="feature">
-    <div class="emoji">✨</div>
-    <h3>Lovely Moments</h3>
-    <p>A welcoming place for food lovers and families.</p>
+  <div class="features">
+    <article class="feature reveal"><div class="emoji">🍲</div><h3>Delicious Flavours</h3><p>Showcase favourite dishes in a beautiful menu.</p></article>
+    <article class="feature reveal"><div class="emoji">👨‍🍳</div><h3>Made with Care</h3><p>Add the restaurant's own story and specialities.</p></article>
+    <article class="feature reveal"><div class="emoji">✨</div><h3>Lovely Moments</h3><p>A warm design for families and food lovers.</p></article>
   </div>
 </section>
 
-<section class="menu" id="menu">
-  <div class="heading">
-    <small>OUR FOOD COLLECTION</small>
-    <h2>Explore the Menu</h2>
-    <p>Sample dishes displayed for this website demo.</p>
+<section class="menu-section" id="menu">
+  <div class="heading reveal">
+    <div class="eyebrow">OUR FOOD COLLECTION</div>
+    <h2>Explore the <span>Menu</span></h2>
+    <p>These are sample food items. Actual dishes and prices must be confirmed by the restaurant.</p>
   </div>
-
   <div class="cards">
-    <article class="card">
-      <img src="https://images.unsplash.com/photo-1563379091339-03246963d96a?auto=format&fit=crop&w=700&q=80" alt="Biryani rice dish" loading="lazy">
-      <div class="card-body">
-        <h3>Special Biryani</h3>
-        <p>A delicious-looking rice dish for your menu showcase.</p>
-        <span class="price">Price: To be confirmed</span>
-      </div>
+    <article class="card reveal">
+      <img src="https://images.unsplash.com/photo-1563379091339-03246963d96a?auto=format&fit=crop&w=750&q=80" alt="Rice dish" loading="lazy">
+      <div class="card-body"><h3>Special Biryani</h3><p>Sample menu item — details to be confirmed.</p></div>
     </article>
-
-    <article class="card">
-      <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=700&q=80" alt="Fresh colourful food bowl" loading="lazy">
-      <div class="card-body">
-        <h3>Fresh Food Bowl</h3>
-        <p>A colourful dish to make the menu look inviting.</p>
-        <span class="price">Price: To be confirmed</span>
-      </div>
+    <article class="card reveal">
+      <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=750&q=80" alt="Fresh food bowl" loading="lazy">
+      <div class="card-body"><h3>Fresh Food Bowl</h3><p>Sample menu item — details to be confirmed.</p></div>
     </article>
-
-    <article class="card">
-      <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?auto=format&fit=crop&w=700&q=80" alt="Pizza with toppings" loading="lazy">
-      <div class="card-body">
-        <h3>Chef's Special</h3>
-        <p>A sample food item that can be replaced with the real menu.</p>
-        <span class="price">Price: To be confirmed</span>
-      </div>
+    <article class="card reveal">
+      <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?auto=format&fit=crop&w=750&q=80" alt="Pizza with toppings" loading="lazy">
+      <div class="card-body"><h3>Chef's Special</h3><p>Sample menu item — details to be confirmed.</p></div>
     </article>
-
-    <article class="card">
-      <img src="https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=700&q=80" alt="Freshly prepared meal" loading="lazy">
-      <div class="card-body">
-        <h3>Fresh Delights</h3>
-        <p>Showcase another popular dish from the restaurant.</p>
-        <span class="price">Price: To be confirmed</span>
-      </div>
+    <article class="card reveal">
+      <img src="https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=750&q=80" alt="Prepared meal" loading="lazy">
+      <div class="card-body"><h3>Fresh Delights</h3><p>Sample menu item — details to be confirmed.</p></div>
     </article>
   </div>
-  <p class="note">Demo only: food images are illustrative. Actual dishes and prices need restaurant approval.</p>
+  <p class="note">Demo photos only. They may not represent food actually served by Ruchi Restaurant.</p>
 </section>
 
 <section id="gallery">
-  <div class="heading">
-    <small>A FEAST FOR THE EYES</small>
-    <h2>Food & Restaurant Gallery</h2>
-    <p>A visual preview of the dining experience.</p>
+  <div class="heading reveal">
+    <div class="eyebrow">A FEAST FOR THE EYES</div>
+    <h2>Food & <span>Gallery</span></h2>
+    <p>Sample photographs to preview the look of the website.</p>
   </div>
   <div class="gallery">
-    <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=700&q=80" alt="Restaurant dining area" loading="lazy">
-    <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=700&q=80" alt="A table full of food" loading="lazy">
-    <img src="https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=700&q=80" alt="Fresh meal closeup" loading="lazy">
-    <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=700&q=80" alt="Restaurant meal presentation" loading="lazy">
+    <img class="reveal" src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=750&q=80" alt="Food spread" loading="lazy">
+    <img class="reveal" src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=750&q=80" alt="Plated restaurant food" loading="lazy">
+    <img class="reveal" src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=750&q=80" alt="Restaurant dining area" loading="lazy">
   </div>
-  <p class="note">These are sample images, not confirmed photos of Ruchi Restaurant.</p>
+  <p class="note">These are illustrative stock photos, not verified photos of this restaurant.</p>
 </section>
 
 <section class="about" id="about">
-  <img src="https://images.unsplash.com/photo-1559339352-11d035aa65de?auto=format&fit=crop&w=900&q=85" alt="Restaurant table setting" loading="lazy">
-  <div>
-    <div class="tag">OUR STORY</div>
-    <h2>Made for Food Lovers</h2>
-    <p>This demo website is designed to introduce Ruchi Restaurant with an elegant look, a food menu and a beautiful gallery. The restaurant's real story, specialities and photos can be added after the owner confirms the details.</p>
-    <a class="btn" href="#contact">Restaurant Details ↓</a>
+  <img class="reveal" src="https://images.unsplash.com/photo-1559339352-11d035aa65de?auto=format&fit=crop&w=1000&q=80" alt="Restaurant table setting" loading="lazy">
+  <div class="reveal">
+    <div class="eyebrow">OUR STORY</div>
+    <h2>A Place for <span>Good Food</span></h2>
+    <p>This demo can be customised with the restaurant's approved story, real food photos, menu, opening hours and contact details after the owner confirms them.</p>
+    <a class="btn" href="#location">Find the Location ↓</a>
+  </div>
+</section>
+
+<section id="location">
+  <div class="heading reveal">
+    <div class="eyebrow">FIND US</div>
+    <h2>Restaurant <span>Location</span></h2>
+    <p>Open Google Maps to search for Ruchi Restaurant. Confirm the correct listing before publishing the final address.</p>
+  </div>
+  <div class="location-box reveal">
+    <div style="font-size:38px">📍</div>
+    <h3 style="margin:12px 0;color:#f6cf7a">Ruchi Restaurant</h3>
+    <p>Exact address to be confirmed by the restaurant owner.</p>
+    <a class="btn" href="https://www.google.com/maps/search/?api=1&query=Ruchi+Restaurant" target="_blank" rel="noopener noreferrer">Open Google Maps ↗</a>
+    <p class="note">This link searches Google Maps; it does not confirm the restaurant's exact location.</p>
   </div>
 </section>
 
 <section class="contact" id="contact">
-  <div class="heading">
-    <small>COME SAY HELLO</small>
-    <h2>Visit Ruchi Restaurant</h2>
-    <p>Interested in this website design?</p>
-    <p>Restaurant address, opening hours and contact number<br>
-    will be added after confirmation from the owner.</p>
+  <div class="heading reveal">
+    <div class="eyebrow">CONTACT & ORDERS</div>
+    <h2>Let's Connect on <span>WhatsApp</span></h2>
+    <p>The restaurant's verified WhatsApp number must be added before customers can place real orders.</p>
+    <a class="btn btn-green" href="https://wa.me/91XXXXXXXXXX" onclick="alert('Demo only: the restaurant WhatsApp number is not confirmed yet.');return false;">💚 WhatsApp Order (Demo)</a>
+    <p class="note">Demo button only — real ordering is not active yet.</p>
   </div>
 </section>
 </main>
 
+<a class="floating-wa" href="#contact">💚 WhatsApp Order</a>
+
 <footer>
-  <p>© 2026 <span>Ruchi Restaurant Demo</span> · Website concept created with care.</p>
-  <p style="margin-top:8px">Sample design — not an official restaurant website.</p>
+  <p>© 2026 <strong>Ruchi Restaurant Demo</strong> · Website concept</p>
+  <p style="margin-top:8px">Sample design only — not an official restaurant website.</p>
 </footer>
 
+<script>
+(function(){
+  const items=document.querySelectorAll('.reveal');
+  if(!('IntersectionObserver' in window)){
+    items.forEach(el=>el.classList.add('visible'));
+    return;
+  }
+  const observer=new IntersectionObserver(entries=>{
+    entries.forEach(entry=>{
+      if(entry.isIntersecting){
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  },{threshold:0.12});
+  items.forEach(el=>observer.observe(el));
+})();
+</script>
 </body>
 </html>
+
